@@ -178,7 +178,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/myapp">
         <Navbar
           title="TextUtils"
           aboutText="About TextUtils"
@@ -227,8 +227,8 @@ function App() {
             showAlert={showAlert}
           />
         </div>
-      </div>
-      <About /> */}
+      </div> */}
+      {/* <About /> */}
     </>
   );
 }

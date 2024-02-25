@@ -29,7 +29,7 @@ export default function Navbar(prop) {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="#">
             {prop.title}
           </Link>
           <button
@@ -56,40 +56,40 @@ export default function Navbar(prop) {
                 </Link>
               </li>
               {/* <li className="nav-item dropdown">
-                <Link
+                <a
                   className="nav-link dropdown-toggle"
-                  to="/"
+                  href="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Dropdown
-                </Link>
+                </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <a className="dropdown-item" href="#">
                       Action
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <a className="dropdown-item" href="#">
                       Another action
-                    </Link>
+                    </a>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <a className="dropdown-item" href="#">
                       Something else here
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link disabled" aria-disabled="true">
+                <a className="nav-link disabled" aria-disabled="true">
                   Disabled
-                </Link>
+                </a>
               </li> */}
             </ul>
             <form className="d-flex" role="search">

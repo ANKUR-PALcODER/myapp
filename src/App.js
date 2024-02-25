@@ -178,7 +178,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename="/myapp">
+      <BrowserRouter>
         <Navbar
           title="TextUtils"
           aboutText="About TextUtils"

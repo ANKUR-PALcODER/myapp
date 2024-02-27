@@ -49,3 +49,6 @@
 .put-border{
     border: 2px #BCABAE solid;
 }
+.about-body{
+  border-radius: 10px;
+}

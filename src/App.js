@@ -130,8 +130,8 @@ function App() {
   // ALERT SETTING
   let [alert, setAlert] = useState(null);
   let [alertStyle, setAlertStyle] = useState({
-    backgroundColor: "rgb(66, 159, 66)",
-    color: "black",
+    backgroundColor: "rgb(13 110 253)",
+    color: "white",
   });
   let showAlert = (message, type) => {
     // if (alert === null) {
@@ -210,7 +210,15 @@ function App() {
               </div>
             }
           />
-          <Route strict path="/about" element={<About />} />
+          <Route
+            strict
+            path="/about"
+            element={
+              <div className="outer-body pt-2" style={myStyle.bodyTheme}>
+                <About myStyle={myStyle.bodyTheme}/>
+              </div>
+            }
+          />
         </Routes>
       </BrowserRouter>
       {/* <Alert

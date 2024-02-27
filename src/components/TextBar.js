@@ -4,6 +4,13 @@ import "../App.css";
 export default function TextBar(prop) {
   const [text, setText] = useState("");
   let now = text === "" ? 0 : text.trim().split(" ").length;
+  let textArr = text.trim().split(" ");
+  if (textArr.length === 1 && textArr[0] === "") {
+    now = 0;
+  }
+
+  // DISABLED NATURE OF BUTTON
+  let disabled = now === 0 ? true : false;
   const handleUpClick = () => {
     setText(text.toUpperCase());
     setInterval(() => {
@@ -19,6 +26,7 @@ export default function TextBar(prop) {
 
   const handleChange = (event) => {
     setText(event.target.value);
+    console.log(textArr);
   };
   const copyText = () => {
     let text = document.getElementById("myBox");
@@ -26,11 +34,11 @@ export default function TextBar(prop) {
     navigator.clipboard.writeText(text.value);
     prop.showAlert("Text Copied !!", "success");
   };
-  const removeSpace = ()=>{
+  const removeSpace = () => {
     let arrText = text.split(/[ ]+/);
     console.log(arrText);
     setText(arrText.join(" "));
-  }
+  };
   return (
     <>
       <div className="body" style={prop.myStyle.bodyTheme}>
@@ -47,32 +55,37 @@ export default function TextBar(prop) {
           />
         </div>
         <button
-          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2`}
+          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2 mb-2`}
           onClick={handleUpClick}
+          disabled = {disabled}
         >
           Convert to Uppercase
         </button>
         <button
-          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2`}
+          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2 mb-2`}
           onClick={handleLowClick}
+          disabled = {disabled}
         >
           Convert to Lowercase
         </button>
         <button
-          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2`}
+          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2 mb-2`}
           onClick={handleClearClick}
+          disabled = {disabled}
         >
           Clear
         </button>
         <button
-          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2`}
+          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2 mb-2`}
           onClick={copyText}
+          disabled = {disabled}
         >
           CopyText
         </button>
         <button
-          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2`}
+          className={`btn btn-${prop.myStyle.navbarTheme.theme} me-2 mb-2`}
           onClick={removeSpace}
+          disabled = {disabled}
         >
           Remove Extra Spaces
         </button>
@@ -92,10 +105,10 @@ export default function TextBar(prop) {
             padding: "5px",
             borderRadius: "8px",
             backgroundColor: prop.myStyle.bodyInputTheme.backgroundColor,
-            color : prop.myStyle.bodyInputTheme.color
+            color: prop.myStyle.bodyInputTheme.color,
           }}
         >
-          {now > 0 ? text : "Enter Your Text in the TextBox Above to Preview"}
+          {now > 0 ? text : "Nothing to preview!! Enter something to preview!!"}
         </p>
       </div>
     </>
